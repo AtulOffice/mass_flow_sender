@@ -3,6 +3,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const InputForm = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    window.location.reload();
+  };
   const [formData, setFormData] = useState({
     actual_transfer: "",
     massflowid: "",
@@ -143,6 +147,12 @@ const InputForm = () => {
           <h2 className="text-xl sm:text-2xl font-bold text-white text-center">
             MASSFLOW METER DATA SENDER
           </h2>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded"
+          >
+            Logout
+          </button>
         </div>
 
         <div className="p-4 sm:p-6">
